@@ -1,83 +1,184 @@
 <!doctype html>
-
 <html>
 <head>
   <meta charset="utf-8">
-
   <title>Charlie's Website</title>
   <style>
     body {background-color: powderblue;}
     h1   {color: navy;}
     h3   {color: navy;}
     p    {color: black;}
+    .dropdown-content {
+      display: none;
+      margin-left: 20px;
+      padding: 10px; /* Add padding to dropdown content when displayed */
+    }
 
+    .dropdown {
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown button {
+      margin-right: 10px;
+      background: none;
+      border: none;
+      font-size: 14px; /* Adjust the size as needed */
+      cursor: pointer;
+    }
+
+    li {
+      margin-bottom: 0; /* Adjust this value to reduce spacing between list entries */
+      padding: 5px 0; /* Add padding for list items */
+    }
+
+    h5 {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      padding-left: 20px; /* Optional: adjust this to your desired list padding */
+      list-style-type: none; /* Remove bullet points */
+    }
   </style>
+  <script>
+    function toggleDropdown(contentId, buttonId) {
+      var content = document.getElementById(contentId);
+      var button = document.getElementById(buttonId);
+      if (content.style.display === "" || content.style.display === "none") {
+        content.style.display = "block";
+        button.textContent = "▼"; // Down arrow
+      } else {
+        content.style.display = "none";
+        button.textContent = "▶"; // Right arrow
+      }
+    }
+  </script>
 </head>
 
 <body>
-  <img src="images/Schloss.jpg" alt="Charlie in germany" align="right" width="30%" height="30%">
+  <img src="images/Schloss.jpg" alt="Charlie in Germany" align="right" width="30%" height="30%">
   <h1>Charlie Reid</h1>
-  Email: charles.reid@mis.mpg.de<br>
-  <a href="CharlieReidCV2024.pdf">CV</a><br>
+  Email: charles.reid@yale.edu<br>
+  <a href="CharlieReidCV2025.pdf">CV</a><br>
   <p>
-  Hi! I'm a mathemetician interested in topics in differential geometry and quantum field theory. Currently I am working on problems concerning character varieties of surfaces, in particular Hitchin components and their compactifications. 
+  Hi! I'm a mathematician interested in topics in differential geometry and quantum field theory. Recently I have worked on problems concerning character varieties of surfaces, in particular Hitchin components and their compactifications. 
 </p>
   <p>
-  Currently, I am a postdoc at the Max Planck Institute for Mathematics in the Sciences in Leipzig. I got my PhD in summer 2024 from UT Austin, and in Fall of 2025 I will begin a postdoc at Yale. 
+  Currently, I have a postdoc at Yale University. Previously I did a postdoc at MPI-MiS in Leipzig, and before that I got my PhD from UT Austin, with a visit to Harvard, advised by Jeffrey Danciger and Dan Freed. 
 </p>
   <h3>Preprints</h3>
   <ul>
-    
+      <li>
+      <div class="dropdown">
+        <button id="button1" onclick="toggleDropdown('content1', 'button1')">▶</button>
+        <h5>
+          <a href="https://arxiv.org/abs/2310.04377">Boundary Currents of Hitchin Components</a>
+        </h5>
+      </div>
+      <div id="content1" class="dropdown-content">
+        <p>
+          Measured laminations lie at the boundary of Teichmüller space. What geodesic currents do we find in higher rank?
+          Here is a rough depiction of Liouville currents associated with SL(3, R) Hitchin representations of the 444-triangle reflection group.
+          <div>
+          <a href="images/Liouville_current_animation.gif"><img src="images/Liouville_current_animation.gif" alt="Liouville current animation" width="400"
+            style="margin: 10px;"></a>
+          </div>
+          Here is one of these currents depicted on the universal cover:
+          <div>
+          <a href="images/SL3Lamination.png"><img src="images/SL3Lamination.png" alt="Liouville current" width="400"
+            style="margin: 10px;"></a>
+          </div>
+          You can see some self-intersections. In my paper I find self-intersection conditions that limits of Liouville currents of Hitchin representations satisfy, and develop a notion of dual space to a geodesic current which works well for these limit currents.
+        </p>
+      </div>
+    </li>
+
     <li>
-  <h5>
-  <a href="https://arxiv.org/abs/2310.04377">Fock Bundles and Hitchin Components</a> (joint with Alex Thomas and Georgios Kydonakis)
-</h5>
-  <p>
-    We define a correspondence between higher complex structures and real representations, and show that we get a map in a neighborhood of the Fuchsian locus.
-  </p>
-  </li>
-    
-  <li>
-  <h5>
-  <a href="https://arxiv.org/abs/2309.10290">Limits of Convex Projective Surfaces and Finsler Metrics</a>
-</h5>
-  <p>
-    The dots in the picture below are elements of the 444 triangle reflection group of length at most 20. The x and y axes are the logarithms of the top and botton eigenvalues of these elements under SL(3,R) Hitchin representations. You can see the dots collecting onto a lattice as the representation goes to infinity. This paper gives a geometric way of telling which lattice point a group element will limit to. 
-  </p>
-  <p>
-  <a href="images/jordan.gif"><img src="images/jordan.gif" alt="jordan projections" width="300"  style="margin:10px"></a>
-  </p>
-  </li>
+      <div class="dropdown">
+        <button id="button2" onclick="toggleDropdown('content2', 'button2')">▶</button>
+        <h5>
+          <a href="https://arxiv.org/abs/2310.04377">Fock Bundles and Hitchin Components</a> (joint with Alex Thomas and Georgios Kydonakis)
+        </h5>
+      </div>
+      <div id="content2" class="dropdown-content">
+        <p>
+          We define a correspondence between higher complex structures on a smooth surface, and real representations of its fundamental group, and show that the correspondence induces a map of moduli spaces in a neighborhood of the Fuchsian locus.
+        </p>
+      </div>
+    </li>
+
     <li>
-    <h5>
-    <a href="https://arxiv.org/abs/2111.08032">Symmetries of 2d TQFTs and Equivariant Verlinde Formulae for General Groups,</a> (joint with  Ali Shehper, Du Pei, and Sergei Gukov)
-  </h5>
-  <p>We use the concept of symmetry gauging to calculate equivariant Verlinde formulas for non simply connected groups.
-  </p>
-  </li>
-</ul>
+      <div class="dropdown">
+        <button id="button3" onclick="toggleDropdown('content3', 'button3')">▶</button>
+        <h5>
+          <a href="https://arxiv.org/abs/2309.10290">Limits of Convex Projective Surfaces and Finsler Metrics</a>
+        </h5>
+      </div>
+      <div id="content3" class="dropdown-content">
+        <p>
+          The dots in the picture below are elements of the 444 triangle reflection group of length at most 20. The x and y axes are the logarithms of the top and bottom eigenvalues of these elements under SL(3, R) Hitchin representations. You can see the dots collecting onto a lattice as the representation goes to infinity. This paper gives a geometric way of telling which lattice point a group element will limit to.
+        </p>
+        <p>
+          <a href="images/jordan.gif"><img src="images/jordan.gif" alt="Jordan projections" width="400"
+            style="margin: 10px;"></a>
+        </p>
+      </div>
+    </li>
+
+    <li>
+      <div class="dropdown">
+        <button id="button4" onclick="toggleDropdown('content4', 'button4')">▶</button>
+        <h5>
+          <a href="https://arxiv.org/abs/2111.08032">Symmetries of 2d TQFTs and Equivariant Verlinde Formulae for General Groups</a> (joint with Ali Shehper, Du Pei, and Sergei Gukov)
+        </h5>
+      </div>
+      <div id="content4" class="dropdown-content">
+        <p>We use the concept of higher symmetry gauging to calculate equivariant Verlinde formulae for non simply connected groups. 
+        </p>
+      </div>
+    </li>
+  </ul>
   <h3>Other Stuff</h3>
   <ul>
-   <li>
-    <h5>
-    <a href="OWR_2022_47.pdf">Arbeitsgemeinschaft: Higher Rank Teichmuller Theory</a> (Oberwolfach Report)
-  </h5>
-  <p>
-    I gave the talk titled "Universal Higher Teichmuller Spaces" of the 2022 Oberwolfach Arbeitzgemeinshaft titled Higher Rank Teichmuller Theory. You can find my extended abstract at the end of the report. 
-  </p>
-   </li>
-  <li>
-    <h5>
-    <a href="https://arxiv.org/abs/2109.12250">Differential Cohomology: Categories, Characteristic Classes, and Connections</a> (by Arun Debray, Araminta Amabel, and Peter Haine)
-  </h5>
-  <p> I participated in a seminar on differential cohomology which eventually lead to this book. I gave the conformal immersions talk, so I wrote the first draft of chapter 20, but it is mostly new content now.
-  </p>
-  </li>
-  <li>
-    <h5><a href="undergrad_thesis.pdf">Overruled Lagrangian Cones: Origins and Incarnations</a> (Undergraduate Thesis)</h5> 
-    <p> Advised by Alexander Givental. I'm not exactly sure how correct it is, but it is amusing to see this material from the perspective of an undergrad. Some of it could be useful.
-    </p>
-  </li>
-</ul>
+    <li>
+      <div class="dropdown">
+        <button id="button5" onclick="toggleDropdown('content5', 'button5')">▶</button>
+        <h5>
+          <a href="OWR_2022_47.pdf">Arbeitsgemeinschaft: Higher Rank Teichmüller Theory</a> (Oberwolfach Report)
+        </h5>
+      </div>
+      <div id="content5" class="dropdown-content">
+        <p>
+          I gave the talk titled "Universal Higher Teichmüller Spaces" of the 2022 Oberwolfach Arbeitsgemeinschaft titled Higher Rank Teichmüller Theory. You can find my extended abstract at the end of the report.
+        </p>
+      </div>
+    </li>
+    <li>
+      <div class="dropdown">
+        <button id="button6" onclick="toggleDropdown('content6', 'button6')">▶</button>
+        <h5>
+          <a href="https://arxiv.org/abs/2109.12250">Differential Cohomology: Categories, Characteristic Classes, and Connections</a> (by Arun Debray, Araminta Amabel, and Peter Haine)
+        </h5>
+      </div>
+      <div id="content6" class="dropdown-content">
+        <p>I participated in a seminar on differential cohomology which eventually led to this book. I gave the conformal immersions talk, so I wrote the first draft of chapter 20, but it is mostly new content now.
+        </p>
+      </div>
+    </li>
+    <li>
+      <div class="dropdown">
+        <button id="button7" onclick="toggleDropdown('content7', 'button7')">▶</button>
+        <h5>
+          <a href="undergrad_thesis.pdf">Overruled Lagrangian Cones: Origins and Incarnations</a> (Undergraduate Thesis)
+        </h5>
+      </div>
+      <div id="content7" class="dropdown-content">
+        <p>Advised by Alexander Givental. I'm not exactly sure how correct it is, but it is amusing to see this material from the perspective of an undergrad. Some of it could be useful.
+        </p>
+      </div>
+    </li>
+  </ul>
 </body>
 </html>
