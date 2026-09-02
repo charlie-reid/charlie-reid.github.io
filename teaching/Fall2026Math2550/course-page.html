@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real Analysis Fall 2026</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --line: #c9c9c9;
+    --head: #e4e4e4;
+    --thurs: #f0f0f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181a; --fg: #e8e8e8; --line: #45474b;
+      --head: #2c2e32; --thurs: #232529;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17181a; --fg: #e8e8e8; --line: #45474b;
+    --head: #2c2e32; --thurs: #232529;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 0;
+    padding: 2rem 1.25rem;
+    line-height: 1.4;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; }
+  h1 { font-size: 1.4rem; font-weight: normal; margin: 0 0 1rem; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 0.45rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--head); font-weight: bold; }
+  td:first-child { white-space: nowrap; font-weight: bold; }
+  tr.thurs td { background: var(--thurs); }
+  tr.final td { border-top: 2px solid var(--fg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h2>Math 2550 - Real Analysis - Fall 2026</h2>
+
+<br>
+<h1>Course Schedule</h1>
+<div class="scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Lecture Topic</th>
+      <th>What's Due</th>
+      <th>Reading</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr class="thurs">
+<td>Th 9/3</td>
+<td>&nbsp;Sets and Functions</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 9/8</td>
+<td>&nbsp;Ordered Sets, Fields</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 9/10</td>
+<td>&nbsp;The Real Numbers</td>
+<td>&nbsp;HW 1</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 9/15</td>
+<td>&nbsp;Finite, Countable, Uncountable</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 9/17</td>
+<td>&nbsp;Metric Spaces</td>
+<td>&nbsp;HW 2</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 9/22</td>
+<td>&nbsp;Open and Closed Sets</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 9/24</td>
+<td>&nbsp;Properties of Open and Closed Sets</td>
+<td>&nbsp;HW 3</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 9/29</td>
+<td>&nbsp;Compactness</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/1</td>
+<td>&nbsp;Properties of Compactness</td>
+<td>&nbsp;HW 4</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/6</td>
+<td>&nbsp;Sequences and Subsequences</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/8</td>
+<td>&nbsp;<strong>Midterm 1</strong></td>
+<td>&nbsp;HW 5 (Sunday)</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/13</td>
+<td>&nbsp;Limsup, Liminf</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/15</td>
+<td>&nbsp;Some Limits, Geometric Series</td>
+<td>&nbsp;HW 6</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/20</td>
+<td>&nbsp;Series Convergence Tests</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/22</td>
+<td><strong>October Recess &mdash; no class</strong></td>
+<td>&nbsp;HW 7</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/27</td>
+<td>&nbsp;Power Series</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/29</td>
+<td>&nbsp;Continuity</td>
+<td>&nbsp;HW 8</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 11/3</td>
+<td>&nbsp;Continuity and Set Properties</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/5</td>
+<td>&nbsp;<strong>Midterm 2</strong></td>
+<td>&nbsp;HW 9 (Sunday)</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 11/10</td>
+<td>&nbsp;Derivatives</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/12</td>
+<td>&nbsp;Chain Rule, Taylor's Theorem</td>
+<td>&nbsp;HW 10</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 11/17</td>
+<td>&nbsp;Riemann Integral</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/19</td>
+<td>&nbsp;Fundamental Theorem of Calculus</td>
+<td>&nbsp;HW 11</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 11/24</td>
+<td><strong>November Recess &mdash; no class</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/26</td>
+<td><strong>November Recess &mdash; no class</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 12/1</td>
+<td>&nbsp;Uniform vs Pointwise Convergence</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 12/3</td>
+<td>&nbsp;Convergence of Differentiability</td>
+<td>&nbsp;HW 12</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 12/8</td>
+<td>&nbsp;Convergence of Integrability</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 12/10</td>
+<td>&nbsp;Contraction Mapping Theorem</td>
+<td>&nbsp;HW 13</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="final">
+<td>W 12/16</td>
+<td>Final Exam</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+  </tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
