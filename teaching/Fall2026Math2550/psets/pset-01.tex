@@ -1,0 +1,494 @@
+\documentclass[12pt,letterpaper,reqno]{amsart}
+
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{float}
+\usepackage{thmtools}
+\usepackage{dashrule}
+\usepackage{silence}
+\WarningFilter{gitinfo2}{I can't find}
+\WarningFilter{biblatex}{Patching}
+\usepackage[missing=]{gitinfo2}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\usepackage{enumitem}
+
+\setlist[enumerate]{topsep=0.4pt,itemsep=0.4ex,partopsep=0.4ex,parsep=0.4ex}
+
+\mathtoolsset{showonlyrefs}
+
+\setlength{\footskip}{18pt}
+
+\definecolor{purple}{rgb}{0.4,0.05,0.8}
+\definecolor{darkblue}{rgb}{0.1,0.1,0.6}
+\definecolor{darkred}{rgb}{0.45,0.1,0.1}
+\definecolor{darkgreen}{rgb}{0.0,0.3,0.06}
+\hypersetup{colorlinks=true,urlcolor=darkred,linkcolor=purple,citecolor=darkred}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+
+% theorem environments
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,notefont=\normalfont\bfseries, notebraces={(}{)}]{theorem}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont,notefont=\normalfont\bfseries, notebraces={(}{)}]{noital}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkblue},notefont=\normalfont\bfseries, notebraces={(}{)}]{noitalblue}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkgreen},notefont=\normalfont\bfseries, notebraces={(}{)}]{green}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkred},notefont=\normalfont\bfseries, notebraces={(}{)}]{red}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont,notefont=\normalfont\bfseries,qed=$\qedsymbol$,notebraces={(}{)}]{proofstyle}
+
+\newcounter{pset}
+
+\declaretheorem[name=Theorem,numberwithin=section,style=red]{thm}
+\declaretheorem[name=Conjecture,numberwithin=section,style=theorem]{conj}
+\declaretheorem[name=Proposition,sibling=thm,style=red]{prop}
+\declaretheorem[name=Proposition,sibling=thm,numbered=no]{prop*}
+\declaretheorem[name=Construction,sibling=thm,style=theorem]{constr}
+\declaretheorem[name=Corollary,sibling=thm,style=red]{cor}
+\declaretheorem[name=Lemma,sibling=thm,style=red]{lem}
+\declaretheorem[name=Definition,sibling=thm,style=noitalblue]{defn}
+\declaretheorem[name=Definition-Proposition,sibling=thm,style=noitalblue]{defprop}
+\declaretheorem[name=Example,sibling=thm,style=green]{example}
+\declaretheorem[name=Exercise,numberwithin=pset,style=noital]{exercise}
+\declaretheorem[name=Solution,numberwithin=pset,style=noital]{solution}
+% \declaretheorem[name=Proof,style=proofstyle,numbered=no]{pf}
+
+\numberwithin{equation}{section}
+
+
+% macros for convenience
+\newcommand{\tops}{\texorpdfstring}
+
+\newcommand{\nid}{\noindent}
+
+\newcommand{\fa}{{\mathfrak a}}
+\newcommand{\fp}{{\mathfrak p}}
+\newcommand{\fk}{{\mathfrak k}}
+\newcommand{\fg}{{\mathfrak g}}
+\newcommand{\fh}{{\mathfrak h}}
+\newcommand{\fn}{{\mathfrak n}}
+\newcommand{\fq}{{\mathfrak q}}
+\newcommand{\fm}{{\mathfrak m}}
+\newcommand{\fr}{{\mathfrak r}}
+\newcommand{\fu}{{\mathfrak u}}
+\newcommand{\fG}{{\mathfrak G}}
+\newcommand{\fgl}{{\mathfrak {gl}}}
+
+\newcommand{\hC}{{\widehat C}}
+\newcommand{\hS}{{\widehat S}}
+\newcommand{\hX}{{\widehat X}}
+
+\newcommand{\cC}{\ensuremath{\mathcal C}}
+\newcommand{\cD}{\ensuremath{\mathcal D}}
+\newcommand{\cW}{\ensuremath{\mathcal W}}
+\newcommand{\cG}{\ensuremath{\mathcal G}}
+\newcommand{\cB}{\ensuremath{\mathcal B}}
+\newcommand{\cL}{\ensuremath{\mathcal L}}
+\newcommand{\cS}{\ensuremath{\mathcal S}}
+\newcommand{\cF}{\ensuremath{\mathcal F}}
+\newcommand{\bcF}{\ensuremath{\overline{\mathcal F}}}
+\newcommand{\cK}{\ensuremath{\mathcal K}}
+\newcommand{\cZ}{\ensuremath{\mathcal Z}}
+\newcommand{\cM}{\ensuremath{\mathcal M}}
+\newcommand{\cP}{\ensuremath{\mathcal P}}
+\newcommand{\cN}{\ensuremath{\mathcal N}}
+\newcommand{\cO}{\ensuremath{\mathcal O}}
+\newcommand{\cT}{\ensuremath{\mathcal T}}
+\newcommand{\cH}{\ensuremath{\mathcal H}}
+\newcommand{\cX}{\ensuremath{\mathcal X}}
+\newcommand{\cY}{\ensuremath{\mathcal Y}}
+\newcommand{\cA}{\ensuremath{\mathcal A}}
+\newcommand{\cI}{\ensuremath{\mathcal I}}
+
+\newcommand{\tphi}{{\ensuremath{\widetilde \phi}}}
+\newcommand{\tf}{{\ensuremath{\widetilde f}}}
+\newcommand{\tg}{{\ensuremath{\widetilde g}}}
+\newcommand{\tiota}{{\ensuremath{\widetilde \iota}}}
+\newcommand{\talpha}{{\ensuremath{\widetilde \alpha}}}
+\newcommand{\tbeta}{{\ensuremath{\widetilde \beta}}}
+\newcommand{\tU}{{\ensuremath{\widetilde U}}}
+\newcommand{\tV}{{\ensuremath{\widetilde V}}}
+\newcommand{\tM}{{\ensuremath{\widetilde M}}}
+\newcommand{\tN}{{\ensuremath{\widetilde N}}}
+\newcommand{\tomega}{{\ensuremath{\widetilde \omega}}}
+\newcommand{\tF}{{\ensuremath{\widetilde F}}}
+
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+\newcommand{\PP}{\ensuremath{\mathbb P}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\Q}{\ensuremath{\mathbb Q}}
+\newcommand{\A}{\ensuremath{\mathbb A}}
+\newcommand{\bbT}{\ensuremath{\mathbb T}}
+\newcommand{\bbH}{\ensuremath{\mathbb H}}
+\newcommand{\bbI}{\ensuremath{\mathbb I}}
+\newcommand{\bbS}{\ensuremath{\mathbb S}}
+\newcommand{\bbQ}{\ensuremath{\mathbb Q}}
+\newcommand{\bbZ}{\ensuremath{\mathbb Z}}
+\newcommand{\bbF}{\ensuremath{\mathbb F}}
+
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\qtr}{\ensuremath{\frac{1}{4}}}
+\newcommand{\bq}{{\mathbf q}}
+\newcommand{\bbN}{{\mathbb N}}
+\newcommand{\N}{{\mathcal N}}
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\HH}{{\mathcal H}}
+\newcommand{\LL}{{\mathcal L}}
+\newcommand{\RR}{{\mathcal R}}
+\newcommand{\V}{{\mathcal V}}
+\newcommand{\dirac}{\!\!\not\!\partial}
+\newcommand{\Dirac}{\!\!\not\!\!D}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\vs}{\not\!v}
+\newcommand{\kahler}{K\"ahler\xspace}
+\newcommand{\painleve}{Painlev\'e\xspace}
+\newcommand{\kq}{/\!\!/}
+\newcommand{\kql}[1]{/\!\!/\!\!_#1\,}
+\newcommand{\hk}{hyperk\"ahler\xspace}
+\newcommand{\Hk}{Hyperk\"ahler\xspace}
+\newcommand{\hkq}{/\!\!/\!\!/\!\!/}
+\newcommand{\hkql}[1]{/\!\!/\!\!/\!\!/\!\!_#1\,}
+\newcommand{\del}{\ensuremath{\partial}}
+\newcommand{\delbar}{\ensuremath{\overline{\partial}}}
+\newcommand{\vphi}{{\vec \phi}}
+\newcommand{\I}{{\mathrm i}}
+\newcommand{\J}{{\mathrm j}}
+\newcommand{\K}{{\mathrm k}}
+\newcommand{\e}{{\mathrm e}}
+\newcommand\bid{{\mathbf 1}}
+\newcommand{\De}{\mathrm{D}}
+\newcommand{\de}{\mathrm{d}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\sf}{\mathrm{sf}}
+\newcommand{\inst}{\mathrm{inst}}
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\fiber}{\mathrm{fiber}}
+\newcommand{\rmvert}{\mathrm{vert}}
+\newcommand{\rmcyc}{\mathrm{cyc}}
+\newcommand{\closed}{\mathrm{closed}}
+\newcommand{\exact}{\mathrm{exact}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\p}{\partial}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\Mat}{\mathrm{Mat}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\formal}{\mathrm{formal}}
+
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\IP}[1]{\langle#1\rangle}
+\newcommand{\DIP}[1]{\langle\!\langle#1\rangle\!\rangle}
+\newcommand{\dwrt}[1]{\frac{\partial}{\partial#1}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\simarrow}{\xrightarrow\sim}
+
+\newcommand{\as}{{\text{ as }}}
+\newcommand{\tin}{{\text{ in }}}
+
+\newcommand{\Airy}{\textrm{Airy}}
+\newcommand{\Betti}{\textrm{Betti}}
+\newcommand{\Conf}{\textrm{Conf}}
+\newcommand{\Fl}{\textrm{Fl}}
+\newcommand{\Sol}{\textrm{Sol}}
+\newcommand{\Mon}{\textrm{Mon}}
+\newcommand{\dR}{\textrm{dR}}
+\newcommand{\dRp}{\textrm{dR,p}}
+\newcommand{\Ai}{\textrm{Ai}}
+\newcommand{\Bi}{\textrm{Bi}}
+\newcommand{\tC}{{\widetilde C}}
+\newcommand{\tSigma}{{\widetilde \Sigma}}
+\newcommand{\tS}{{\widetilde S}}
+\newcommand{\near}{\textrm{near}}
+\newcommand{\far}{\textrm{far}}
+\newcommand{\std}{\textrm{std}}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\mmaref}[1]{}
+
+\newcommand{\ti}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Bd}{Bd}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\Hol}{Hol}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Path}{Path}
+\DeclareMathOperator{\LPath}{LPath}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\insfig}[3]{
+
+\medskip
+\noindent
+\begin{minipage}{\linewidth}
+
+\captionsetup{type=figure} 
+
+\makebox[\linewidth]{\includegraphics[keepaspectratio=true,scale=#2]{figures/#1.pdf}}
+
+\captionof{figure}{#3}
+\label{fig:#1}
+
+\end{minipage}
+\medskip
+
+}
+
+
+% \newcommand{\insfig}[2]{\begin{figure}[htbp] \centering \includegraphics[scale=#2]{figures/#1-crop.pdf} \label{fig:#1} \end{figure}}
+% syntax: \insfig{name}{0.5}{caption}
+
+\newcommand{\warn}[1]{{\color{red}{[#1]}}}
+\newcommand{\fixme}[1]{{\color{orange}{[#1]}}}
+\newcommand{\currentposition}{{\color{blue} \noindent\makebox[\linewidth]{\hdashrule{\paperwidth}{1pt}{3mm}}}}
+
+% \mathtoolsset{showonlyrefs}
+
+\begin{document}
+
+\makeatletter
+\renewcommand{\sectionautorefname}{\S\@gobble}
+\renewcommand{\subsectionautorefname}{\S\@gobble}
+\renewcommand{\subsubsectionautorefname}{\S\@gobble}
+\makeatother
+
+\pagestyle{fancy}
+\lhead{{\tiny \color{gray} \tt \gitAuthorIsoDate}}
+\chead{\tiny \ti{MATH 2550: Analysis 1, Fall 2026, Yale University}}
+\rhead{{\tiny \color{gray} \tt \gitAbbrevHash}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\thispagestyle{fancy}
+
+\newpage
+
+\setcounter{pset}{1}
+\setcounter{exercise}{0}
+
+\begin{center}
+{\bf{Problem set \arabic{pset}}} \\
+{\bf{Due Thursday January 22, 11:59pm}}
+\end{center}
+
+
+Problem sets will be assigned weekly. You should submit your solutions to the problem sets 
+in PDF form via the Gradescope interface in Canvas.
+LaTeX is a very nice tool to use for this purpose, but handwritten
+solutions are good too as long as they are clearly legible.
+
+On the problem sets, you are free --- and indeed strongly encouraged --- to collaborate with other
+students in our class.
+Discussing mathematics with others is the easiest 
+way of learning it.
+
+There are two rules:
+
+\begin{enumerate}
+
+\item \textit{You are not permitted to post problems from the problem sets to publicly accessible websites.}
+
+\item \textit{You must write down your solutions to the problems on your own: thus 
+your solutions should not be identical or near-identical to solutions submitted by other students, and they also should not look like output from ChatGPT or similar tools.}
+\end{enumerate}
+
+You are of course free and encouraged to discuss the problems with me or with our TA or ULAs.
+You are also free to use other resources, such as our textbook, our lecture notes,
+any other books, information found on the Internet, or AI tools.
+(Despite this last point, I do not suggest searching
+the Internet for solutions to the problems, or using AI to solve the problems; 
+even if you do get correct solutions, you won't learn much that way.)
+
+In writing up your solutions, you are free to use without proof anything stated in class
+or in the lecture notes, or anything in the course text. 
+You should be sure to state clearly what you are using.
+If you have some doubt about whether something is OK to use, just ask!
+
+\smallskip
+
+% \noindent\hrulefill
+
+
+\begin{exercise}[5 points] Suppose $A$, $B$, and $C$ are sets, $f:A\to B$ is surjective, and $g:B\to C$ is surjective. Show that $g\circ f$ is surjective. 
+\end{exercise}
+
+
+\begin{exercise}[10 points; Rudin 1.3] \label{ex:field-checks}
+Suppose $F$ is a field with $x,y,z \in F$.
+Prove carefully from the field axioms:
+\begin{enumerate}
+  \item If $x \neq 0$ and $xy = xz$, then $y = z$.
+  \item If $x \neq 0$ and $xy = x$, then $y = 1$.
+  \item If $xy = 1$, then $x \neq 0$ and $y = x^{-1}$.
+  \item If $x \neq 0$, then $(x^{-1})^{-1} = x$.
+\end{enumerate}
+% (For the purposes of this exercise, you should use only the properties given in the definition of a field. For the rest of the course, though, we will allow ourselves freely to use the usual rules of arithmetic, without carefully justifying them from the definition of a field every time.)
+\end{exercise}
+
+
+%\begin{exercise}[5 points; {Rudin 1.1}]
+%For this exercise, all you need to know about
+%$\R$ is that it is a field which contains the field $\Q$.
+%
+%Suppose $r \in \Q$, $r \neq 0$, and $x \in \R$, $x \notin \Q$.  Prove that $r+x \notin \Q$ 
+%and $rx \notin \Q$.
+%\end{exercise}
+
+
+\begin{exercise}[10 points] In this problem you may freely use without proof all the standard facts about 
+arithmetic of rational numbers and integers.
+
+\begin{enumerate}
+
+\item Prove that $\bbQ$ does not contain any $x$ with $x^2 = 3$. (For this part it may be useful to use the
+fundamental theorem of arithmetic, which you may use without proof.)
+
+\item Let $\bbQ(\sqrt{3})$ be the set of ordered pairs
+$(a,b)$ with $a, b \in \bbQ$.
+Informally, we think of each pair $(a,b)$
+as representing a number ``$a + b \sqrt{3}$.''
+We can equip $\bbQ(\sqrt{3})$ with addition and product laws as follows:
+% \begin{gather}
+%   (a + b \sqrt{3})  +  (a' + b' \sqrt{3}) = (a+a') + (b+b')\sqrt{3} \, , \\
+%   (a + b \sqrt{3}) (a' + b' \sqrt{3}) = (aa' + 3bb') + (ab' + ba') \sqrt{3} \, .
+% \end{gather}
+\begin{gather}
+  (a,b)  +  (a',b') = (a+a', b+b') \, , \\
+  (a,b) \cdot (a',b') = (aa' + 3bb', ab' + ba') \, .
+\end{gather}
+(These rules are motivated by applying the usual rules of arithmetic to sums of the form ``$a + b \sqrt3$''.)
+
+Show that $\bbQ(\sqrt{3})$ can be made into a field, with these addition and product laws.
+(This means saying carefully what are the $0$ and $1$ elements, what is the negation law, 
+what is the inversion law, and 
+then proving that all the axioms of a field are satisfied.
+This will probably be the lengthiest part of your writeup.)
+
+\item In solving part (2), did you use the result of part (1)? If so, where?
+
+\item $\bbQ(\sqrt3)$ contains an element $3$, defined as $3 = 1 + 1 + 1$, where $1$ is the $1$ element
+you already defined in part (2). What is the element $3$? Prove that $\bbQ(\sqrt3)$ contains exactly two elements $x$ with $x^2 = 3$.
+
+\end{enumerate}
+
+\end{exercise}
+
+
+% \begin{exercise}[5 points]
+% As we have stated, the usual order relation on $\bbQ$ can be expressed as:
+% \begin{equation}
+%   p/q < p'/q' \quad \iff \quad pq' < p'q \, 
+% \end{equation}
+% where $q$ and $q'$ are chosen to be positive (note that this can always be done). 
+
+% We can define a different relation $\prec$, as follows:
+% assume that all fractions are written in lowest terms and with positive denominators. Define
+% \begin{equation}
+%   p/q \prec p'/q' \quad \iff \quad pq < p'q' \, .
+% \end{equation}
+% Prove that the relation $\prec$ does \ti{not} make $\bbQ$ into an ordered set.
+
+% \end{exercise}
+
+\begin{exercise}[8 points]
+ 
+Let $A$ be a nonempty subset of an ordered set $S$. Suppose $\alpha$ is a lower bound of $A$ and
+$\beta$ is an upper bound of $A$. 
+
+\begin{enumerate}
+\item Prove that $\alpha \le \beta$.
+\item Note that in the statement of the problem we require $A$ to be nonempty. Would the statement $\alpha \le \beta$ still hold even
+if we allow $A$ to be empty? Explain why or why not. In solving part (1), did you use the fact that $A$ is nonempty?
+If so, where did you use it?
+\end{enumerate}
+
+\end{exercise}
+
+
+%\begin{exercise}
+%Prove that an ordered field cannot have a maximum element.
+%\end{exercise}
+
+% \begin{exercise}[{Rudin 1.5}]
+% Let $A \subset \R$ be nonempty and bounded below.  Let $-A = \{-x\ \vert\ x \in A\}$.
+% Prove that $\inf(A) = - \sup(-A)$.
+% \end{exercise}
+
+% \begin{exercise}
+% Does the empty set $\emptyset \subset \Q$ have a supremum in $\Q$? Prove your answer.
+% \end{exercise}
+
+% \begin{exercise}
+% Suppose $A \subset \R$ is nonempty.
+% \begin{enumerate}
+% \item Suppose $L = \sup(A)$. Then, for all $\eps \in \R$ with $\eps > 0$, 
+% prove that there exists some $x \in A$ such that $L - \eps < x \le L$.
+% \item Suppose $L$ is an upper bound for $A$ and $L \in A$.
+% Prove that $L = \sup(A)$.
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Suppose $a, b \in \R$, with $a < b$.  Let $A = (a,b)$.
+% Prove that $\sup (A) = b$.  (Similarly $\inf (A) = a$, but you don't need to write
+% out the proof of this part.)
+% \end{exercise}
+
+
+% \begin{exercise}
+% This exercise is a reminder that the ``size'' of infinite sets can
+% be a bit counterintuitive.
+
+% \begin{enumerate}
+%   \item
+% Suppose $a, b \in \R$, with $a < b$.
+% Prove that there is a bijection from $(a,b)$ to $(0,1)$.
+
+% \item Prove that there is a bijection from $(0,1)$ to $(1,\infty)$.
+
+% \item Suppose $a,b \in \R$. 
+% Prove that there is a bijection from $(a,\infty)$ to $(b,\infty)$.
+% \end{enumerate}
+% \end{exercise}
+
+\end{document}
+
