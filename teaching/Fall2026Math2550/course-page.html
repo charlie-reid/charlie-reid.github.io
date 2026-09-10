@@ -44,6 +44,37 @@
   td:first-child { white-space: nowrap; font-weight: bold; }
   tr.thurs td { background: var(--thurs); }
   tr.final td { border-top: 2px solid var(--fg); }
+  /* Links */
+:root {
+  --link: #00356b;
+  --link-visited: #6b4568;
+  --link-hover: #8c2b1f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --link: #8ab4dd;
+    --link-visited: #b598b3;
+    --link-hover: #d99183;
+  }
+}
+:root[data-theme="dark"] {
+  --link: #8ab4dd;
+  --link-visited: #b598b3;
+  --link-hover: #d99183;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+}
+a:visited { color: var(--link-visited); }
+a:hover, a:focus-visible {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
 </style>
 </head>
 <body>
@@ -73,13 +104,13 @@
 <td>T 9/8</td>
 <td>&nbsp;Ordered Sets, Fields</td>
 <td>&nbsp;</td>
-<td>&nbsp;<a href="real-analysis.pdf">Andy's notes</a> pages 7-19, or Rudin pages 1-8. </td>
+<td>&nbsp;<a href="real-analysis.pdf">Andy's notes</a> pages 7-16, or Rudin pages 1-8. </td>
 </tr>
 <tr class="thurs">
 <td>Th 9/10</td>
 <td>&nbsp;The Real Numbers</td>
 <td>&nbsp;<a href="psets/pset-01.pdf">HW 1</a>, <a href="psets/pset-01.tex" download>TEX</a></td>
-<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Andy's notes</a> pages 16-19, or Rudin pages 8-12. The proof of existence and uniqueness of n'th roots is totally optional. </td></td>
 </tr>
 <tr>
 <td>T 9/15</td>
