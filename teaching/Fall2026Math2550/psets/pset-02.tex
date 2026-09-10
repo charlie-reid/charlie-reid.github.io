@@ -1,0 +1,420 @@
+\documentclass[12pt,letterpaper,reqno]{amsart}
+
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{float}
+\usepackage{thmtools}
+\usepackage{dashrule}
+\usepackage{silence}
+\WarningFilter{gitinfo2}{I can't find}
+\WarningFilter{biblatex}{Patching}
+\usepackage[missing=]{gitinfo2}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\usepackage{enumitem}
+
+\setlist[enumerate]{topsep=0.4pt,itemsep=0.4ex,partopsep=0.4ex,parsep=0.4ex}
+
+\mathtoolsset{showonlyrefs}
+
+\setlength{\footskip}{18pt}
+
+\definecolor{purple}{rgb}{0.4,0.05,0.8}
+\definecolor{darkblue}{rgb}{0.1,0.1,0.6}
+\definecolor{darkred}{rgb}{0.45,0.1,0.1}
+\definecolor{darkgreen}{rgb}{0.0,0.3,0.06}
+\hypersetup{colorlinks=true,urlcolor=darkred,linkcolor=purple,citecolor=darkred}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+
+% theorem environments
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,notefont=\normalfont\bfseries, notebraces={(}{)}]{theorem}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont,notefont=\normalfont\bfseries, notebraces={(}{)}]{noital}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkblue},notefont=\normalfont\bfseries, notebraces={(}{)}]{noitalblue}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkgreen},notefont=\normalfont\bfseries, notebraces={(}{)}]{green}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont\color{darkred},notefont=\normalfont\bfseries, notebraces={(}{)}]{red}
+\declaretheoremstyle[spaceabove=0.25cm,spacebelow=0.25cm,bodyfont=\normalfont,notefont=\normalfont\bfseries,qed=$\qedsymbol$,notebraces={(}{)}]{proofstyle}
+
+\newcounter{pset}
+
+\declaretheorem[name=Theorem,numberwithin=section,style=red]{thm}
+\declaretheorem[name=Conjecture,numberwithin=section,style=theorem]{conj}
+\declaretheorem[name=Proposition,sibling=thm,style=red]{prop}
+\declaretheorem[name=Proposition,sibling=thm,numbered=no]{prop*}
+\declaretheorem[name=Construction,sibling=thm,style=theorem]{constr}
+\declaretheorem[name=Corollary,sibling=thm,style=red]{cor}
+\declaretheorem[name=Lemma,sibling=thm,style=red]{lem}
+\declaretheorem[name=Definition,sibling=thm,style=noitalblue]{defn}
+\declaretheorem[name=Definition-Proposition,sibling=thm,style=noitalblue]{defprop}
+\declaretheorem[name=Example,sibling=thm,style=green]{example}
+\declaretheorem[name=Exercise,numberwithin=pset,style=noital]{exercise}
+\declaretheorem[name=Solution,numberwithin=pset,style=noital]{solution}
+% \declaretheorem[name=Proof,style=proofstyle,numbered=no]{pf}
+
+\numberwithin{equation}{section}
+
+
+% macros for convenience
+\newcommand{\tops}{\texorpdfstring}
+
+\newcommand{\nid}{\noindent}
+
+\newcommand{\fa}{{\mathfrak a}}
+\newcommand{\fp}{{\mathfrak p}}
+\newcommand{\fk}{{\mathfrak k}}
+\newcommand{\fg}{{\mathfrak g}}
+\newcommand{\fh}{{\mathfrak h}}
+\newcommand{\fn}{{\mathfrak n}}
+\newcommand{\fq}{{\mathfrak q}}
+\newcommand{\fm}{{\mathfrak m}}
+\newcommand{\fr}{{\mathfrak r}}
+\newcommand{\fu}{{\mathfrak u}}
+\newcommand{\fG}{{\mathfrak G}}
+\newcommand{\fgl}{{\mathfrak {gl}}}
+
+\newcommand{\hC}{{\widehat C}}
+\newcommand{\hS}{{\widehat S}}
+\newcommand{\hX}{{\widehat X}}
+
+\newcommand{\cC}{\ensuremath{\mathcal C}}
+\newcommand{\cD}{\ensuremath{\mathcal D}}
+\newcommand{\cW}{\ensuremath{\mathcal W}}
+\newcommand{\cG}{\ensuremath{\mathcal G}}
+\newcommand{\cB}{\ensuremath{\mathcal B}}
+\newcommand{\cL}{\ensuremath{\mathcal L}}
+\newcommand{\cS}{\ensuremath{\mathcal S}}
+\newcommand{\cF}{\ensuremath{\mathcal F}}
+\newcommand{\bcF}{\ensuremath{\overline{\mathcal F}}}
+\newcommand{\cK}{\ensuremath{\mathcal K}}
+\newcommand{\cZ}{\ensuremath{\mathcal Z}}
+\newcommand{\cM}{\ensuremath{\mathcal M}}
+\newcommand{\cP}{\ensuremath{\mathcal P}}
+\newcommand{\cN}{\ensuremath{\mathcal N}}
+\newcommand{\cO}{\ensuremath{\mathcal O}}
+\newcommand{\cT}{\ensuremath{\mathcal T}}
+\newcommand{\cH}{\ensuremath{\mathcal H}}
+\newcommand{\cX}{\ensuremath{\mathcal X}}
+\newcommand{\cY}{\ensuremath{\mathcal Y}}
+\newcommand{\cA}{\ensuremath{\mathcal A}}
+\newcommand{\cI}{\ensuremath{\mathcal I}}
+
+\newcommand{\tphi}{{\ensuremath{\widetilde \phi}}}
+\newcommand{\tf}{{\ensuremath{\widetilde f}}}
+\newcommand{\tg}{{\ensuremath{\widetilde g}}}
+\newcommand{\tiota}{{\ensuremath{\widetilde \iota}}}
+\newcommand{\talpha}{{\ensuremath{\widetilde \alpha}}}
+\newcommand{\tbeta}{{\ensuremath{\widetilde \beta}}}
+\newcommand{\tU}{{\ensuremath{\widetilde U}}}
+\newcommand{\tV}{{\ensuremath{\widetilde V}}}
+\newcommand{\tM}{{\ensuremath{\widetilde M}}}
+\newcommand{\tN}{{\ensuremath{\widetilde N}}}
+\newcommand{\tomega}{{\ensuremath{\widetilde \omega}}}
+\newcommand{\tF}{{\ensuremath{\widetilde F}}}
+
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+\newcommand{\PP}{\ensuremath{\mathbb P}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\Q}{\ensuremath{\mathbb Q}}
+\newcommand{\A}{\ensuremath{\mathbb A}}
+\newcommand{\bbT}{\ensuremath{\mathbb T}}
+\newcommand{\bbH}{\ensuremath{\mathbb H}}
+\newcommand{\bbI}{\ensuremath{\mathbb I}}
+\newcommand{\bbS}{\ensuremath{\mathbb S}}
+\newcommand{\bbQ}{\ensuremath{\mathbb Q}}
+\newcommand{\bbZ}{\ensuremath{\mathbb Z}}
+\newcommand{\bbF}{\ensuremath{\mathbb F}}
+
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\qtr}{\ensuremath{\frac{1}{4}}}
+\newcommand{\bq}{{\mathbf q}}
+\newcommand{\bbN}{{\mathbb N}}
+\newcommand{\N}{{\mathcal N}}
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\HH}{{\mathcal H}}
+\newcommand{\LL}{{\mathcal L}}
+\newcommand{\RR}{{\mathcal R}}
+\newcommand{\V}{{\mathcal V}}
+\newcommand{\dirac}{\!\!\not\!\partial}
+\newcommand{\Dirac}{\!\!\not\!\!D}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\vs}{\not\!v}
+\newcommand{\kahler}{K\"ahler\xspace}
+\newcommand{\painleve}{Painlev\'e\xspace}
+\newcommand{\kq}{/\!\!/}
+\newcommand{\kql}[1]{/\!\!/\!\!_#1\,}
+\newcommand{\hk}{hyperk\"ahler\xspace}
+\newcommand{\Hk}{Hyperk\"ahler\xspace}
+\newcommand{\hkq}{/\!\!/\!\!/\!\!/}
+\newcommand{\hkql}[1]{/\!\!/\!\!/\!\!/\!\!_#1\,}
+\newcommand{\del}{\ensuremath{\partial}}
+\newcommand{\delbar}{\ensuremath{\overline{\partial}}}
+\newcommand{\vphi}{{\vec \phi}}
+\newcommand{\I}{{\mathrm i}}
+\newcommand{\J}{{\mathrm j}}
+\newcommand{\K}{{\mathrm k}}
+\newcommand{\e}{{\mathrm e}}
+\newcommand\bid{{\mathbf 1}}
+\newcommand{\De}{\mathrm{D}}
+\newcommand{\de}{\mathrm{d}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\sf}{\mathrm{sf}}
+\newcommand{\inst}{\mathrm{inst}}
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\fiber}{\mathrm{fiber}}
+\newcommand{\rmvert}{\mathrm{vert}}
+\newcommand{\rmcyc}{\mathrm{cyc}}
+\newcommand{\closed}{\mathrm{closed}}
+\newcommand{\exact}{\mathrm{exact}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\p}{\partial}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\Mat}{\mathrm{Mat}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\formal}{\mathrm{formal}}
+
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\IP}[1]{\langle#1\rangle}
+\newcommand{\DIP}[1]{\langle\!\langle#1\rangle\!\rangle}
+\newcommand{\dwrt}[1]{\frac{\partial}{\partial#1}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\simarrow}{\xrightarrow\sim}
+
+\newcommand{\as}{{\text{ as }}}
+\newcommand{\tin}{{\text{ in }}}
+
+\newcommand{\Airy}{\textrm{Airy}}
+\newcommand{\Betti}{\textrm{Betti}}
+\newcommand{\Conf}{\textrm{Conf}}
+\newcommand{\Fl}{\textrm{Fl}}
+\newcommand{\Sol}{\textrm{Sol}}
+\newcommand{\Mon}{\textrm{Mon}}
+\newcommand{\dR}{\textrm{dR}}
+\newcommand{\dRp}{\textrm{dR,p}}
+\newcommand{\Ai}{\textrm{Ai}}
+\newcommand{\Bi}{\textrm{Bi}}
+\newcommand{\tC}{{\widetilde C}}
+\newcommand{\tSigma}{{\widetilde \Sigma}}
+\newcommand{\tS}{{\widetilde S}}
+\newcommand{\near}{\textrm{near}}
+\newcommand{\far}{\textrm{far}}
+\newcommand{\std}{\textrm{std}}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\mmaref}[1]{}
+
+\newcommand{\ti}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Bd}{Bd}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\Hol}{Hol}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Path}{Path}
+\DeclareMathOperator{\LPath}{LPath}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\insfig}[3]{
+
+\medskip
+\noindent
+\begin{minipage}{\linewidth}
+
+\captionsetup{type=figure} 
+
+\makebox[\linewidth]{\includegraphics[keepaspectratio=true,scale=#2]{figures/#1.pdf}}
+
+\captionof{figure}{#3}
+\label{fig:#1}
+
+\end{minipage}
+\medskip
+
+}
+
+
+% \newcommand{\insfig}[2]{\begin{figure}[htbp] \centering \includegraphics[scale=#2]{figures/#1-crop.pdf} \label{fig:#1} \end{figure}}
+% syntax: \insfig{name}{0.5}{caption}
+
+\newcommand{\warn}[1]{{\color{red}{[#1]}}}
+\newcommand{\fixme}[1]{{\color{orange}{[#1]}}}
+\newcommand{\currentposition}{{\color{blue} \noindent\makebox[\linewidth]{\hdashrule{\paperwidth}{1pt}{3mm}}}}
+
+% \mathtoolsset{showonlyrefs}
+
+\begin{document}
+
+\makeatletter
+\renewcommand{\sectionautorefname}{\S\@gobble}
+\renewcommand{\subsectionautorefname}{\S\@gobble}
+\renewcommand{\subsubsectionautorefname}{\S\@gobble}
+\makeatother
+
+\pagestyle{fancy}
+\lhead{{\tiny \color{gray} \tt \gitAuthorIsoDate}}
+\chead{\tiny \ti{MATH 2550: Analysis 1, spring 2026, Yale University}}
+\rhead{{\tiny \color{gray} \tt \gitAbbrevHash}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\thispagestyle{fancy}
+
+\newpage
+
+\setcounter{pset}{2}
+\setcounter{exercise}{0}
+
+\begin{center}
+{\bf{Problem set \arabic{pset}}} \\
+{\bf{Due Thursday Jan 29, 11:59pm}}
+\end{center}
+
+
+\begin{exercise}[3 points]
+Let $F$ be any ordered field.
+Suppose $A \subset F$ has a supremum. Suppose $\eps \in F$
+with $\eps > 0$. 
+Prove that there exists some $x \in A$ such that $x > (\sup A) - \eps$.
+\end{exercise}
+
+
+\begin{exercise}[5 points; Rudin 1.5]
+Let $A \subset \R$ be nonempty and bounded below. Define
+\begin{equation}
+-A = \{-x\ \mid x \in A\} \, .  
+\end{equation}
+Prove that $\inf A = - \sup(-A)$.
+\end{exercise}
+
+
+\begin{exercise}[10 points]
+For each of the following, $A$ is a subset of $\mathbb{Q}$.
+Answer the following in each case, and prove your answers: 
+\begin{itemize}
+\item Is $A$ bounded above? 
+\item Does $A$ have a maximum element, and if so, what is it? 
+\item Does $A$ have a supremum in $\Q$, and if so, what is it?
+\end{itemize}
+\begin{enumerate}
+  \item $A = \{ -\frac{1}{n} \mid n \in \bbN \}$.
+  \item $A = \{ x \in \Q \mid 0 < x < 1 \}$.
+  \item $A = \{ x \in \Q \mid 0 < x < t \}$ where $t$ is a positive irrational number.
+\end{enumerate}
+
+\end{exercise}
+
+
+\begin{exercise}[5 points] This exercise is a reminder that the cardinality of sets is sometimes a counterintuitive notion of size.
+
+\begin{enumerate}
+ 
+ \item
+Suppose $a, b \in \R$, with $a < b$.
+Prove that there is a bijection from $(a,b)$ to $(0,1)$.
+
+\item Prove that there is a bijection from $(0,1)$ to $(1,\infty)$.
+
+\item Suppose $a,b \in \R$. 
+Prove that there is a bijection from $(a,\infty)$ to $(b,\infty)$.
+\end{enumerate}
+\end{exercise}
+
+
+\begin{exercise}[10 points]
+Decide if the following sets are countable or uncountable. Prove your answers.
+\begin{enumerate}
+\item The set of irrational numbers.
+\item The set of sequences of natural numbers $n_1,n_2,n_3,\dots$.
+\item The set of sequences of natural numbers $n_1,n_2,n_3,\dots$ such that there exists some $l\in \mathbb{N}$ such that $n_k=0$ for all $k>l$. 
+\end{enumerate}
+\end{exercise}
+
+\noindent\hrulefill
+
+\begin{exercise}[optional, not for credit; Rudin 1.8 and 1.9]
+
+Define the complex numbers as the set 
+\begin{equation}
+\C= \{a+b \I \mid a,b \in \R \}
+\end{equation}
+with the addition and multiplication rules given by
+\begin{itemize}
+\item $(a+b\I)+(a'+b'\I) = (a+a') + (b+b')\I$,
+\item $(a+b\I)(a'+b'\I) = (aa'-bb') + (ab'+a'b)\I$.
+\end{itemize}
+\begin{enumerate}
+\item Prove that $\C$ with these operations (and an appropriate $0$, $1$, negation, inversion) is a field.
+\item Prove that $\C$ with these operations cannot be made into an ordered field.
+\item Define the \emph{lexicographic order} on $\C$ by defining 
+\begin{equation}
+a+b\I<c+d\I \quad \iff \quad a<c \ \text{ or } \ (a=c \text{ and } b<d). 
+\end{equation}
+Prove that this makes $\C$ into an ordered \emph{set} (though not an ordered \emph{field}).
+  
+\item Does the lexicographic order on $\C$ have the least upper bound property?
+\end{enumerate}
+
+\end{exercise}
+
+
+
+%\begin{exercise}
+%Prove that an ordered field cannot have a maximum element.
+%\end{exercise}
+
+% \begin{exercise}
+% Does the empty set $\emptyset \subset \Q$ have a supremum in $\Q$? Prove your answer.
+% \end{exercise}
+
+
+% \begin{exercise}
+% Suppose $a, b \in \R$, with $a < b$.  Let $A = (a,b)$.
+% Prove that $\sup (A) = b$.  (Similarly $\inf (A) = a$, but you don't need to write
+% out the proof of this part.)
+% \end{exercise}
+
+
+
+\end{document}
+
