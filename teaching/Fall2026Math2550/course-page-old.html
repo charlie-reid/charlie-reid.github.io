@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real Analysis Fall 2026</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --line: #c9c9c9;
+    --head: #e4e4e4;
+    --thurs: #f0f0f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181a; --fg: #e8e8e8; --line: #45474b;
+      --head: #2c2e32; --thurs: #232529;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17181a; --fg: #e8e8e8; --line: #45474b;
+    --head: #2c2e32; --thurs: #232529;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 0;
+    padding: 2rem 1.25rem;
+    line-height: 1.4;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; }
+  h1 { font-size: 1.4rem; font-weight: normal; margin: 0 0 1rem; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 0.45rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--head); font-weight: bold; }
+  td:first-child { white-space: nowrap; font-weight: bold; }
+  tr.thurs td { background: var(--thurs); }
+  tr.final td { border-top: 2px solid var(--fg); }
+  /* Links */
+:root {
+  --link: #00356b;
+  --link-visited: #6b4568;
+  --link-hover: #8c2b1f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --link: #8ab4dd;
+    --link-visited: #b598b3;
+    --link-hover: #d99183;
+  }
+}
+:root[data-theme="dark"] {
+  --link: #8ab4dd;
+  --link-visited: #b598b3;
+  --link-hover: #d99183;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+}
+a:visited { color: var(--link-visited); }
+a:hover, a:focus-visible {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h2>Math 2550 - Real Analysis - Fall 2026</h2>
+
+<br>
+<h1>Course Schedule</h1>
+<div class="scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Lecture Topic</th>
+      <th>What's Due</th>
+      <th>Reading</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr class="thurs">
+<td>Th 9/3</td>
+<td>&nbsp;<a href="lecturenotes/lecture1.pdf">1. Sets and Functions</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> pages 2-7 </td>
+</tr>
+<tr>
+<td>T 9/8</td>
+<td>&nbsp;<a href="lecturenotes/lecture2.pdf">2. Ordered Sets, Fields</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> pages 7-16, or Rudin pages 1-8. </td>
+</tr>
+<tr class="thurs">
+<td>Th 9/10</td>
+<td>&nbsp;<a href="lecturenotes/lecture3.pdf">3. The Real Numbers</a></td>
+<td>&nbsp;<a href="psets/pset-01.pdf">PSet 1</a>, <a href="psets/pset-01.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> pages 16-19, or Rudin pages 8-12. The proof of existence and uniqueness of n'th roots is totally optional. </td>
+</tr>
+<tr>
+<td>T 9/15</td>
+<td>&nbsp;<a href="lecturenotes/lecture4.pdf">4. Square Roots in R, Finiteness and Countability</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> pages 19-24, or Rudin pages 24-30.</td>
+</tr>
+<tr class="thurs">
+<td>Th 9/17</td>
+<td>&nbsp;<a href="lecturenotes/lecture5.pdf">5. Q is countable, R is uncountable, Metric Spaces</a></td>
+<td>&nbsp;<a href="psets/pset-02.pdf">PSet 2</a>, <a href="psets/pset-02.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> pages 24-29, or Rudin "Euclidean Spaces" 16-17 and "Metric Spaces" 30-32.</td>
+</tr>
+<tr>
+<td>T 9/22</td>
+<td>&nbsp;<a href="lecturenotes/lecture6.pdf">6. Metric Spaces, Open and Closed Sets</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 27-33, Rudin 30-36</td>
+</tr>
+<tr class="thurs">
+<td>Th 9/24</td>
+<td>&nbsp;<a href="lecturenotes/lecture7.pdf">7. Properties of Open and Closed Sets</a></td>
+<td>&nbsp;<a href="psets/pset-03.pdf">PSet 3</a>, <a href="psets/pset-03.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 27-33, Rudin 30-36 (same as Tuesday)</td>
+</tr>
+<tr>
+<td>T 9/29</td>
+<td>&nbsp;<a href="lecturenotes/lecture8.pdf">8. Compactness, Connectedness</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 35-36, Rudin 35-37</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/1</td>
+<td>&nbsp;<a href="lecturenotes/lecture9.pdf">9. Properties of Compactness</a></td>
+<td>&nbsp;<a href="psets/pset-04.pdf">PSet 4</a>, <a href="psets/pset-04.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 37-40, Rudin 37-40</td>
+</tr>
+<tr>
+<td>T 10/6</td>
+<td>&nbsp;<a href="lecturenotes/lecture10.pdf">10. Heine-Borel Theorem, Cantor Set</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 39-40, Rudin 41-43 (we skipped perfectness)</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/8</td>
+<td>&nbsp;<strong>Midterm 1</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/13</td>
+<td>&nbsp;<a href="lecturenotes/lecture11.pdf">11. Convergence and Limits</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 40-42, Rudin 47-51</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/15</td>
+<td>&nbsp;<a href="lecturenotes/lecture12.pdf">12. Cauchy Sequences and Completeness</a></td>
+<td>&nbsp;<a href="psets/pset-05.pdf">PSet 5</a>, <a href="psets/pset-05.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 42-44, Rudin 51-54</td>
+</tr>
+<tr>
+<td>T 10/20</td>
+<td>&nbsp;<a href="lecturenotes/lecture13.pdf">13. R is Complete, Limsup and Liminf</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 43-47, Rudin 53-57</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/22</td>
+<td><strong>October Recess &mdash; no class</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 10/27</td>
+<td>&nbsp;<a href="lecturenotes/lecture14.pdf">14. Some useful limits, Geometric Series, p-series</a></td>
+<td>&nbsp;<a href="psets/pset-06.pdf">PSet 6</a>, <a href="psets/pset-06.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 47-50, Rudin 57-63</td>
+</tr>
+<tr class="thurs">
+<td>Th 10/29</td>
+<td>&nbsp;<a href="lecturenotes/lecture15.pdf">15. Root Test, Ratio Test, Alternating Series Test</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 50-51 and 54-55, Rudin 65-69 and 70-71</td>
+</tr>
+<tr>
+<td>T 11/3</td>
+<td>&nbsp;<a href="lecturenotes/lecture16.pdf">16. Power Series, Absolute vs Conditional Convergence</a></td>
+<td>&nbsp;<a href="psets/pset-07.pdf">PSet 7</a>, <a href="psets/pset-07.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 51-54 and 88-89, Rudin 69-78</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/5</td>
+<td>&nbsp;<a href="lecturenotes/lecture17.pdf">17. Continuity</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 56-61, Rudin 83-87</td>
+</tr>
+<tr>
+<td>T 11/10</td>
+<td>&nbsp;18. Continuity and Set Properties</td>
+<td>&nbsp;<a href="psets/pset-08.pdf">PSet 8</a>, <a href="psets/pset-08.tex" download>TEX</a></td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 61-65, Rudin 86-94</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/12</td>
+<td>&nbsp;<strong>Midterm 2</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 11/17</td>
+<td>&nbsp;19. Derivatives</td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 65-72, Rudin 103-108</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/19</td>
+<td>&nbsp;20. Chain Rule, Taylor's Theorem</td>
+<td>&nbsp;HW 9</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 68-69 and 72-74, Rudin 105-106 and 110-111</td>
+</tr>
+<tr>
+<td>T 11/24</td>
+<td><strong>November Recess &mdash; no class</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 11/26</td>
+<td><strong>November Recess &mdash; no class</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>T 12/1</td>
+<td>&nbsp;21. Riemann Integral</td>
+<td>&nbsp;</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 75-83, Rudin 120-130</td>
+</tr>
+<tr class="thurs">
+<td>Th 12/3</td>
+<td>&nbsp;22. Fundamental Theorem of Calculus</td>
+<td>&nbsp;HW 10</td>
+<td>&nbsp;<a href="real-analysis.pdf">Prof. Neitzke's notes</a> 86-88, Rudin 133-134</td>
+</tr>
+<tr>
+<td>T 12/8</td>
+<td>&nbsp;23. Uniform Convergence</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="thurs">
+<td>Th 12/10</td>
+<td>&nbsp;24. Contraction Mapping Theorem</td>
+<td>&nbsp;HW 11</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="final">
+<td>W 12/16</td>
+<td>Final Exam</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+  </tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
